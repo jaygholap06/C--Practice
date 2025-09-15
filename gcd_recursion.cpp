@@ -1,22 +1,19 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
 using namespace std;
-int gcd(int a ,int b){
-    int c,d;
-    c=a%b;
-    if(c==0){
-        return d;
+
+int gcd(int a, int b) {
+    if (b == 0) {       // base case
+        return a;
     }
-    d=min(a,b)%gcd(min(a,b),c);
-    return c;
+    return gcd(b, a % b);  // recursive call
 }
-int main(){
-    int x,y;
-    cout<<"enter the first number "<<endl;
-    cin>>x;
-    cout<<"enter the second number "<<endl;
-    cin>>y;
-    cout<<gcd(x,y);
-   
-   return 0;
+
+int main() {
+    int x, y;
+    cout << "enter the first number: ";
+    cin >> x;
+    cout << "enter the second number: ";
+    cin >> y;
+    cout << "The GCD is: " << gcd(x, y) << endl;
+    return 0;
 }
